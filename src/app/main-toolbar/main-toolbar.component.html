@@ -1,14 +1,42 @@
 
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" href="#">ETL Onboarding</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown" dropdown>
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          Create Order<span class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/csv-order"
+          routerLinkActive="active">CSV</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/sql-order"
+          routerLinkActive="active">SQL</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/sharepoint-order"
+          routerLinkActive="active">Sharepoint</a>
+          <div class="divider dropdown-divider"></div>
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/custom-order"
+          routerLinkActive="active">Custom</a>
+        </div>
+      </li>
 
 
 
-<div class="container mt-5">
-  <div class="row d-flex justify-content-around">
-    <div class="col-sm d-flex justify-content-center">
-      <button class="btn-outline-primary btn-lg" routerLink="/form" routerLinkActive="active">Create Order</button>
-    </div>
-    <div class="col-sm d-flex justify-content-center">
-      <button class="btn-outline-primary btn-lg"  routerLink="/orders" routerLinkActive="active">Your Orders</button>
-    </div>
-  </div>
-</div>
+
+
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect routerLink="/orders"
+        routerLinkActive="active">Your Orders<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </links>
+</mdb-navbar>
+

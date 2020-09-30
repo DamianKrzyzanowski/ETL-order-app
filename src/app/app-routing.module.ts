@@ -10,17 +10,11 @@ import { CustomOrderFormComponent } from './custom-order-form/custom-order-form.
 
 
 const routes: Routes = [
-  {path: 'form', component: RequestFormComponent,
-    children: [
-                {path: 'sql-order', component: SqlOrderFormComponent},
-                {path: 'csv-order', component: CsvOrderFormComponent},
-                {path: 'sharepoint-order', component: SharepointOrderFormComponent},
-                {path: 'custom-order', component: CustomOrderFormComponent}
-              ]
-  },
-  {path: 'orders', component: OrdersListComponent },
-
-
+  {path: 'sql-order', component: SqlOrderFormComponent},
+  {path: 'csv-order', component: CsvOrderFormComponent},
+  {path: 'sharepoint-order', component: SharepointOrderFormComponent},
+  {path: 'custom-order', component: CustomOrderFormComponent},
+  {path: 'orders', component: OrdersListComponent }
 ];
 
 @NgModule({
