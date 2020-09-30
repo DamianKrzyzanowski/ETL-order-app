@@ -23,4 +23,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [OrdersListComponent, RequestFormComponent]
+export const routingComponents = [OrdersListComponent, RequestFormComponent];
