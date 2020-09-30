@@ -8,8 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MainToolbarComponent } from './main-toolbar/main-toolbar.component';
-import { FormToolbarComponent } from './form-toolbar/form-toolbar.component';
-
 
 
 import { SqlOrderFormComponent } from './sql-order-form/sql-order-form.component';
@@ -26,7 +24,6 @@ import { MDBBootstrapModule} from 'angular-bootstrap-md';
   declarations: [
     AppComponent,
     MainToolbarComponent,
-    FormToolbarComponent,
 
     routingComponents,
     SqlOrderFormComponent,
