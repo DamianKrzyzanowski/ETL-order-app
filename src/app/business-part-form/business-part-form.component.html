@@ -1,6 +1,5 @@
 <div class="mx-5 mt-5">
 
-{{ businessForm.value | json}}
 
 <!--BEFORE YOU START SECTION STARTS HERE-->
 <div class="mx-5 mt-5">
@@ -23,13 +22,10 @@
 </div>
 
 
+<!-- STEPPER HEADLINER -->
 <div class="row">
   <div class="col-md-12">
-
-    <!-- Stepers Wrapper -->
     <ul class="stepper stepper-horizontal">
-
-      <!-- First Step -->
       <li class="completed">
         <a>
           <span class="circle">1</span>
@@ -37,45 +33,37 @@
         </a>
       </li>
     </ul>
-    <!-- /.Stepers Wrapper -->
-
   </div>
 </div>
-<!-- /.Horizontal Steppers -->
+
 
 
 <!-- FORM SECTION STARTS HERE-->
-
 <form [formGroup]="businessForm">
   <hr>
+
+  <!-- FIRST LINE -->
   <div class="form-row">
     <div class="col-md-3">
       <div class="md-form form-group">
-        <input mdbInput type="text" class="form-control" id="name" placeholder="Name" formControlName="requestorName">
+        <input mdbInput type="text" class="form-control" id="name" placeholder="" formControlName="requestorName">
         <label for="name">Name </label>
       </div>
-    </div>
-    <div class="col-md-1">
-      <ng-template #nameTemplate> <div>Name information blablablablabla</div></ng-template>
-      <i class="fas fa-info-circle fa-lg" [mdbTooltip]="nameTemplate"></i>
     </div>
 
     <div class="col-md-3">
       <div class="md-form form-group">
-        <input mdbInput type="text" class="form-control" id="surname" placeholder="Surname" formControlName="requestorSurname">
+        <input mdbInput type="text" class="form-control" id="surname" placeholder="" formControlName="requestorSurname">
         <label for="surname">Surname</label>
       </div>
     </div>
-    <div class="col-md-1">
-      <ng-template #surnameTemplate> <div>Surname information</div></ng-template>
-      <i class="fas fa-info-circle fa-lg" [mdbTooltip]="surnameTemplate"></i>
-    </div>
 </div>
 
+<!-- SECOND LINE -->
 <div class="form-row">
   <div class="col-md-3">
     <div class="md-form form-group">
-      <input mdbInput type="text" class="form-control" id="userpid" placeholder="Your PID" formControlName="userPID">
+      <input mdbInput type="text" class="form-control" id="userpid" placeholder="" formControlName="userPID">
       <label for="userPID">Requestor PID</label>
       <mdb-error *ngIf="businessForm.get('userPID').errors && businessForm.get('userPID').dirty ">Incorrect PID</mdb-error>
       <mdb-success *ngIf="!businessForm.get('userPID').errors && businessForm.get('userPID').dirty "><i class="fas fa-check"></i></mdb-success>
@@ -84,29 +72,68 @@
 
   <div class="col-md-3">
     <div class="md-form form-group">
-      <input mdbInput type="text" class="form-control" id="email" placeholder="Your e-mail" formControlName="email">
+      <input mdbInput type="text" class="form-control" id="email" placeholder="" formControlName="email">
       <label for="E-Mail">Requestor E-mail</label>
       <mdb-error *ngIf="businessForm.get('email').errors && businessForm.get('email').dirty ">Wrong e-mail</mdb-error>
     </div>
   </div>
 </div>
 
+
+<!-- THIRD LINE -->
 <div class="form-row">
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="md-form form-group">
-      <input mdbInput type="text" class="form-control" id="projectName" placeholder="Project Name" formControlName="projectName">
+      <input mdbInput type="text" class="form-control" id="projectName" placeholder="" formControlName="projectName">
       <label for="Project Name">Project Name</label>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-1">
+    <ng-template #projectTemplate> <div>Your Project Name</div></ng-template>
+    <i class="fas fa-info-circle fa-lg" [mdbTooltip]="projectTemplate"></i>
+  </div>
+
+  <div class="col-md-2">
     <div class="md-form form-group">
-      <input mdbInput type="text" class="form-control" id="prCode" placeholder="CTB PR-Code (PR-XXXXX)" formControlName="prCode">
+      <input mdbInput type="text" class="form-control" id="prCode" placeholder="PR-XXXXX" formControlName="prCode">
       <label for="PR-Code">PR-Code</label>
       <mdb-error *ngIf="businessForm.get('prCode').errors && businessForm.get('prCode').dirty ">Wrong PR-Code</mdb-error>
     </div>
   </div>
+  <div class="col-md-1">
+    <ng-template #prCodeTemplate> <div>PR-Code must be CTB type as we cannot retrieve payment from RTB codes.</div></ng-template>
+    <i class="fas fa-info-circle fa-lg" [mdbTooltip]="prCodeTemplate"></i>
+  </div>
 </div>
 
+<!-- FOURTH LINE -->
+<div class="form-row">
+  <div class="col-md-2">
+    <div class="md-form form-group">
+      <input mdbInput type="text" class="form-control" id="dataOwner" placeholder="" formControlName="dataOwner">
+      <label for="Data Owner">Data Owner</label>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <ng-template #dataOwnerTemplate> <div>Who is owner of the data that you want to onboard into Data Lake?</div></ng-template>
+    <i class="fas fa-info-circle fa-lg" [mdbTooltip]="dataOwnerTemplate"></i>
+  </div>
+
+  <div class="col-md-2">
+    <div class="md-form form-group">
+      <input mdbInput type="text" class="form-control" id="dataSteward" placeholder="" formControlName="dataSteward">
+      <label for="Data Steward">Data Steward</label>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <ng-template #dataStewardTemplate> <div>Who should be first point of contact in case of any adapter<br> errors / queries from Credit Suisse employees?</div></ng-template>
+    <i class="fas fa-info-circle fa-lg" [mdbTooltip]="dataStewardTemplate"></i>
+  </div>
+</div>
+
+
+
+<!-- FIFTH LINE -->
 <div class="form-row">
   <div class="col-md-4">
     <div class="md-form">
@@ -116,14 +143,18 @@
     </div>
     </div>
     <div class="col-md-1">
-      <ng-template #nameTemplate> <div>Name information blablablablabla</div></ng-template>
-      <i class="fas fa-info-circle fa-lg" [mdbTooltip]="nameTemplate"></i>
+      <ng-template #projectDescriptionTemplate> <div>Describe your project in few sentences.<br>What is the goal of this onboarding?</div></ng-template>
+      <i class="fas fa-info-circle fa-lg" [mdbTooltip]="projectDescriptionTemplate"></i>
     </div>
     <div class="col-md-4">
       <div class="md-form">
         <textarea id="businessJustification" class="md-textarea form-control" rows="2" formControlName="businessJustification"></textarea>
         <label for="businessJustification" class="active">Business Justification</label>
       </div>
+    </div>
+    <div class="col-md-1">
+      <ng-template #businessJustificationTemplate> <div>Provide few sentences about business aspect of this onboarding. What value does it bring?<br> This is needed for Data Lake reporting.</div></ng-template>
+      <i class="fas fa-info-circle fa-lg" [mdbTooltip]="businessJustificationTemplate"></i>
     </div>
 </div>
 

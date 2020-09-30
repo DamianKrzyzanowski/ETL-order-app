@@ -25,6 +25,8 @@ export class SqlOrderFormComponent implements OnInit {
         email: [''],
         projectName: [''],
         prCode: ['', BusinessValidator.prCodeValidator],
+        dataOwner: ['', Validators.required],
+        dataSteward: ['', Validators.required],
         projectDescription: [''],
         businessJustification: [''],
         deadline: ['', Validators.required],
