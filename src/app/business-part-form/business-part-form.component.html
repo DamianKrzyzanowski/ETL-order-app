@@ -1,0 +1,156 @@
+<div class="mx-5 mt-5">
+
+{{ businessForm.value | json}}
+
+<!--BEFORE YOU START SECTION STARTS HERE-->
+<div class="mx-5 mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+      <div class="card border-danger">
+        <div class="card-header text-danger"><i class="fas fa-exclamation"></i> Before You Start</div>
+          <div class="card-body">
+              <h5 class="card-title">
+                Down below you can find a list of articles that will help you go through the requesting process and to understand how does Data Lake work.
+              </h5>
+              <p class="card-text"><i class="fas fa-hand-point-right"></i> link 1</p>
+              <p class="card-text"><i class="fas fa-hand-point-right"></i> link 2</p>
+          </div>
+      </div>
+      </div>
+  </div>
+</div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+
+    <!-- Stepers Wrapper -->
+    <ul class="stepper stepper-horizontal">
+
+      <!-- First Step -->
+      <li class="completed">
+        <a>
+          <span class="circle">1</span>
+          <span class="label">Business Part of Request</span>
+        </a>
+      </li>
+    </ul>
+    <!-- /.Stepers Wrapper -->
+
+  </div>
+</div>
+<!-- /.Horizontal Steppers -->
+
+
+<!-- FORM SECTION STARTS HERE-->
+
+<form [formGroup]="businessForm">
+  <hr>
+  <div class="form-row">
+    <div class="col-md-3">
+      <div class="md-form form-group">
+        <input mdbInput type="text" class="form-control" id="name" placeholder="Name" formControlName="requestorName">
+        <label for="name">Name </label>
+      </div>
+    </div>
+    <div class="col-md-1">
+      <ng-template #nameTemplate> <div>Name information blablablablabla</div></ng-template>
+      <i class="fas fa-info-circle fa-lg" [mdbTooltip]="nameTemplate"></i>
+    </div>
+
+    <div class="col-md-3">
+      <div class="md-form form-group">
+        <input mdbInput type="text" class="form-control" id="surname" placeholder="Surname" formControlName="requestorSurname">
+        <label for="surname">Surname</label>
+      </div>
+    </div>
+    <div class="col-md-1">
+      <ng-template #surnameTemplate> <div>Surname information</div></ng-template>
+      <i class="fas fa-info-circle fa-lg" [mdbTooltip]="surnameTemplate"></i>
+    </div>
+</div>
+
+<div class="form-row">
+  <div class="col-md-3">
+    <div class="md-form form-group">
+      <input mdbInput type="text" class="form-control" id="userpid" placeholder="Your PID" formControlName="userPID">
+      <label for="userPID">Requestor PID</label>
+      <mdb-error *ngIf="businessForm.get('userPID').errors && businessForm.get('userPID').dirty ">Incorrect PID</mdb-error>
+      <mdb-success *ngIf="!businessForm.get('userPID').errors && businessForm.get('userPID').dirty "><i class="fas fa-check"></i></mdb-success>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="md-form form-group">
+      <input mdbInput type="text" class="form-control" id="email" placeholder="Your e-mail" formControlName="email">
+      <label for="E-Mail">Requestor E-mail</label>
+      <mdb-error *ngIf="businessForm.get('email').errors && businessForm.get('email').dirty ">Wrong e-mail</mdb-error>
+    </div>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="col-md-3">
+    <div class="md-form form-group">
+      <input mdbInput type="text" class="form-control" id="projectName" placeholder="Project Name" formControlName="projectName">
+      <label for="Project Name">Project Name</label>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="md-form form-group">
+      <input mdbInput type="text" class="form-control" id="prCode" placeholder="CTB PR-Code (PR-XXXXX)" formControlName="prCode">
+      <label for="PR-Code">PR-Code</label>
+      <mdb-error *ngIf="businessForm.get('prCode').errors && businessForm.get('prCode').dirty ">Wrong PR-Code</mdb-error>
+    </div>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="col-md-4">
+    <div class="md-form">
+      <textarea id="projectDescription" class="md-textarea form-control" rows="2" formControlName="projectDescription"></textarea>
+
+      <label for="projectDescription" class="active">Project Description</label>
+    </div>
+    </div>
+    <div class="col-md-1">
+      <ng-template #nameTemplate> <div>Name information blablablablabla</div></ng-template>
+      <i class="fas fa-info-circle fa-lg" [mdbTooltip]="nameTemplate"></i>
+    </div>
+    <div class="col-md-4">
+      <div class="md-form">
+        <textarea id="businessJustification" class="md-textarea form-control" rows="2" formControlName="businessJustification"></textarea>
+        <label for="businessJustification" class="active">Business Justification</label>
+      </div>
+    </div>
+</div>
+
+<div class="form-row">
+  <div class="col-md-4">
+    <label for="deadline" class="active">Is there a hard deadline?</label>
+    <select id="deadline" class="browser-default custom-select" formControlName="deadline">
+      <option value="False">No</option>
+      <option value="True">Yes</option>
+    </select>
+  </div>
+  <div class="col-md-4">
+  <div *ngIf="businessForm.get('deadline').value == 'True'" class="md-form">
+    <input type="date" id="input" class="form-control" mdbInput formControlName="deadlineDate">
+    <label for="input">Choose your date</label>
+  </div>
+  </div>
+</div>
+
+
+
+</form>
+
+</div>
+
+
+
+<!-- Extended material form grid -->
+
+

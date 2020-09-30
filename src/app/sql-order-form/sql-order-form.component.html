@@ -1,0 +1,48 @@
+
+
+<app-business-part-form [businessForm]="sqlForm.get('businessForm')"></app-business-part-form>
+
+
+{{ sqlForm.value | json }}
+
+<div class="mx-5">
+
+<div class="row">
+  <div class="col-md-12">
+    <!-- Stepers Wrapper -->
+    <ul class="stepper stepper-horizontal">
+      <!-- First Step -->
+      <li class="completed">
+        <a>
+          <span class="circle">2</span>
+          <span class="label">Technical Part of Request</span>
+        </a>
+      </li>
+    </ul>
+    <!-- /.Stepers Wrapper -->
+  </div>
+</div>
+<!-- /.Horizontal Steppers -->
+
+
+<form [formGroup]="sqlForm">
+  <hr>
+
+  <div class="form-row">
+    <div class="col-md-3">
+      <div class="md-form form-group">
+        <input mdbInput type="text" class="form-control" id="connectionString" placeholder="Connection String" formControlName="connectionString">
+        <label for="connectionString">Connection String</label>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <button *ngIf="!sqlForm.valid" type="button" class="my-5 btn btn-success btn-lg" disabled>Send Request</button>
+    <button *ngIf="sqlForm.valid" type="button" class="my-5 btn btn-success btn-lg"><i class="fas fa-check"></i> Send Request</button>
+  </div>
+
+
+</form>
+</div>
