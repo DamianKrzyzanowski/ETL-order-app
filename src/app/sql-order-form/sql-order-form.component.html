@@ -1,17 +1,30 @@
-
-
 <app-business-part-form [businessForm]="sqlForm.get('businessForm')"></app-business-part-form>
 
+<!--
+<div class="mx-5 mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+      <div class="card border-danger">
+        <div class="card-header text-danger"><i class="fas fa-exclamation"></i> Before You Start The Technical Part</div>
+          <div class="card-body">
+              <h5 class="card-title">
+                Down below you can find a list of articles that will help you go through the requesting process and to understand how does Data Lake work.
+              </h5>
+              <p class="card-text"><i class="fas fa-hand-point-right"></i> link 1</p>
+          </div>
+      </div>
+      </div>
+  </div>
+</div>
+</div> -->
 
-{{ sqlForm.value | json }}
 
 <div class="mx-5">
 
 <div class="row">
   <div class="col-md-12">
-    <!-- Stepers Wrapper -->
     <ul class="stepper stepper-horizontal">
-      <!-- First Step -->
       <li class="completed">
         <a>
           <span class="circle">2</span>
@@ -19,23 +32,69 @@
         </a>
       </li>
     </ul>
-    <!-- /.Stepers Wrapper -->
   </div>
 </div>
-<!-- /.Horizontal Steppers -->
+
 
 
 <form [formGroup]="sqlForm">
   <hr>
 
+  <!-- FIRST LINE -->
   <div class="form-row">
+    <div class="col-md-4">
+      <label for="databaseType" class="active">What type is the database?</label>
+      <select id="databaseType" class="browser-default custom-select" formControlName="databaseType">
+        <option value="SqlServer">SqlServer</option>
+        <option value="MySQL">MySQL</option>
+        <option value="Oracle">Oracle</option>
+        <option value="Postgres">Postgres</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
     <div class="col-md-3">
-      <div class="md-form form-group">
-        <input mdbInput type="text" class="form-control" id="connectionString" placeholder="Connection String" formControlName="connectionString">
-        <label for="connectionString">Connection String</label>
-      </div>
+    <div *ngIf="sqlForm.get('databaseType').value == 'Other'" class="md-form">
+          <input mdbInput type="text" class="form-control" id="otherDatabaseType" placeholder="" formControlName="otherDatabaseType">
+          <label for="otherDatabaseType">Other database type </label>
+    </div>
     </div>
   </div>
+
+  <!-- SECOND LINE -->
+<div class="form-row mt-3">
+  <div class="col-md-3">
+    <div class="md-form">
+      <textarea id="connectionString" class="md-textarea form-control" rows="1" formControlName="connectionString"></textarea>
+      <label for="connectionString" class="active">Connection String</label>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <ng-template #connectionString> <div>Please, provide the connection string which we can use to connect to the database.</div></ng-template>
+    <i class="fas fa-info-circle fa-lg" [mdbTooltip]="connectionString"></i>
+  </div>
+
+  <div class="col-md-3">
+    <div class="md-form">
+      <textarea id="onboardingScope" class="md-textarea form-control" rows="1" formControlName="onboardingScope"></textarea>
+      <label for="onboardingScope" class="active">What tables do you want to onboard?</label>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <ng-template #onboardingScope> <div>Please, list the schema names + tables that you want to onboard.</div></ng-template>
+    <i class="fas fa-info-circle fa-lg" [mdbTooltip]="onboardingScope"></i>
+  </div>
+
+
+</div>
+
+
+  <!-- <div class="col-md-4">
+    <label for="hasServiceAccountAccess" class="active">Is the access for svTis360 granted?</label>
+    <select id="hasServiceAccountAccess" class="browser-default custom-select" formControlName="hasServiceAccountAccess">
+      <option value="True">Yes</option>
+      <option value="False">No</option>
+    </select>
+  </div> -->
 
 
   <div>

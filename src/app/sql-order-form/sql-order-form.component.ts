@@ -32,7 +32,10 @@ export class SqlOrderFormComponent implements OnInit {
         deadline: ['', Validators.required],
         deadlineDate: ['']
       }),
-      connectionString: ['', Validators.required]
+      databaseType: ['', Validators.required],
+      otherDatabaseType: [''],
+      connectionString: ['', Validators.required],
+      onboardingScope: ['', Validators.required]
     });
 
     this.sqlForm.valueChanges.subscribe();
